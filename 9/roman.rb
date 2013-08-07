@@ -1,5 +1,6 @@
 # Inteter -> String
 # produce roman numeral string of a integer
+# I = 1 V = 5 X = 10 L = 50 C = 100 D = 500 M = 1000
 
 def n_to_s n, base, char
   char * (n / base)
@@ -30,15 +31,10 @@ def roman i
   n = i % 5
   result += n_to_s n, 1, 'I'
 
-  puts result
-
 end
 
 puts x = rand(3000)
-roman x
-
-puts
-
+puts roman x
 puts '1999'
-roman 1999
+puts roman 1999
 

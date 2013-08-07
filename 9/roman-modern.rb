@@ -1,18 +1,46 @@
 # Inteter -> String
 # produce roman numeral string of a integer
-
-def n_to_s n, base1, base2, char
-  char * ((n % base1) / base2)
-end
+# I = 1 V = 5 X = 10 L = 50 C = 100 D = 500 M = 1000
+# IV = 4 IX = 9 XL = 40 XC = 90 CD = 400 CM = 900
 
 def roman n
-  result = n_to_s(n, 5000, 1000, 'M') + n_to_s(n, 1000, 500, 'D') + n_to_s(n, 500, 100, 'C') + n_to_s(n, 100, 50, 'L') + n_to_s(n, 50, 10, 'X') + n_to_s(n, 10, 5, 'V') + n_to_s(n, 5, 1, 'I')
-  puts result
+  thou = n / 1000
+  hand = (n % 1000) / 100
+  ten = (n % 100) / 10
+  one = n % 10
+
+  r = 'M' * thou
+
+  if hand == 9
+    r += 'CM'
+  elsif hand == 4
+    r += 'CD'
+  else
+    r += 'D' * (hand / 5) + 'C' * (hand % 5)
+  end
+
+  if ten == 9
+    r += 'XC'
+  elsif ten == 4
+    r += 'XL'
+  else
+    r += 'L' * (ten / 5) + 'X' * (ten % 5)
+  end
+
+  if one == 9
+    r += 'IX'
+  elsif one == 4
+    r += 'IV'
+  else
+    r += 'V' * (one / 5) + 'I' * (one % 5)
+  end
+
+  r
+
 end
 
 puts x = rand(3000)
-roman x
-puts
+puts roman x
 puts '1999'
-roman 1999
+puts roman 1999
 
