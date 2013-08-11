@@ -94,18 +94,16 @@ def english_number number
   num_string
 end
 
-puts english_number(  0)
-puts english_number(  9)
-puts english_number( 10)
-puts english_number( 11)
-puts english_number( 17)
-puts english_number( 32)
-puts english_number( 88)
-puts english_number( 99)
-puts english_number(100)
-puts english_number(101)
-puts english_number(234)
-puts english_number(3211)
-puts english_number(999999)
-puts english_number(1000000000000)
-puts english_number(1230000000000)
+num_at_start = 5
+
+# num_bot = proc {|n| "#{english_number[n]} bottle#{n == 1 ? '' : 's'}"}
+num_bot = proc {|n| "bottle#{n == 1 ? '' : 's'}"}
+
+num_at_start.downto(2) do |num|
+  puts "#{english_number(num)} #{num_bot[num]} of beer on the wall, #{english_number(num)} #{num_bot[num]} of beer!"
+  puts "Take one down, pass it around, #{english_number(num-1)} #{num_bot[num-1]} of beer on the wall!!"
+end
+
+puts "#{english_number(1)} #{num_bot[1]} of beer on the wall, #{english_number(1)} #{num_bot[1]} of beer on the wall!!"
+puts "Take one down, pass it around, no more bottles of beer on the wall!"
+
