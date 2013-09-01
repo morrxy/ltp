@@ -15,18 +15,16 @@ while true
   elsif n == 2
     s = 1.to_s + ' bottle'
   else
-    s = (n-1).to_s + ' bottles'
+    s = (n - 1).to_s + ' bottles'
   end
 
-  puts n.to_s + S1 + n.to_s + S2;
-  puts S3 + s + S4;
+  puts n.to_s + S1 + n.to_s + S2
+  puts S3 + s + S4
   puts ''
 
   n -= 1
 
-  if n == 0
-    break
-  end
+  break if n == 0
 
 end
 
